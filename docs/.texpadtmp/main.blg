@@ -1,0 +1,9 @@
+[0] Config.pm:343> INFO - This is Biber 2.5
+[0] Config.pm:346> INFO - Logfile is '/Users/VaeVictis/Dropbox/Master_AI/I Semester/Machine Learning/Midterm/docs/.texpadtmp/main.blg'
+[50] biber-darwin:290> INFO - === Fri Nov  3, 2017, 12:12:57
+[72] Biber.pm:351> INFO - Reading '/Users/VaeVictis/Dropbox/Master_AI/I Semester/Machine Learning/Midterm/docs/.texpadtmp/main.bcf'
+[176] Biber.pm:776> INFO - Found 0 citekeys in bib section 0
+[183] Utils.pm:149> WARN - The file '/Users/VaeVictis/Dropbox/Master_AI/I Semester/Machine Learning/Midterm/docs/.texpadtmp/main.bcf' does not contain any citations!
+[193] bbl.pm:526> INFO - Writing '/Users/VaeVictis/Dropbox/Master_AI/I Semester/Machine Learning/Midterm/docs/.texpadtmp/main.bbl' with encoding 'ascii'
+[193] bbl.pm:619> INFO - Output to /Users/VaeVictis/Dropbox/Master_AI/I Semester/Machine Learning/Midterm/docs/.texpadtmp/main.bbl
+[193] Biber.pm:108> INFO - WARNINGS: 1
