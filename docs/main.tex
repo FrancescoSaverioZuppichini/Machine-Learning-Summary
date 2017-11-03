@@ -44,8 +44,8 @@ f(x) \left \{
 \end{equation}
 Given a training set $D = \{ (x_1,t_1}, ... , (x_n,t_i) \}$, $x_i \in X$ and $t_i \in Y$ denotes the input vector and the target vector respectively. We express $y = f(x)$ as the output of the algorithm, $w$ the weight and $b$ the bias. At each iteration the error is calculated using the Mean Square Error, defined in equation \ref{eq: MSE_perceptron}
 \begin{equation}
-\label{eq: MSE_perceptron}
 	E(w) = \frac{1}{N}\sum_{i = 1}^N(\underbrace{y(x_i,w_i)}_{\text{predicted}} - \underbrace{t_i}_{\text{actual}})^2)
+	\label{eq: MSE_perceptron}
 \end{equation}
 The algorithm uses stochastic \textbf{Gradient Descent} in order to update the weight at each iteration using the formula defined in Equation \ref{eq: gradient_descent}.
  
@@ -54,7 +54,7 @@ The algorithm uses stochastic \textbf{Gradient Descent} in order to update the w
 \end{equation}
 \todo[inline]{Decide if use \nabla or partial or booth}
 \section{Neural Network}
-A \textbf{Neural Network} is a universal function approximation. Basically it is a big chain function composed by layer of $n$ non-linear perceptron. In its simplest representation, an FeedForward Neural Network, it is composed by a \textbf{input layer}, an \textbf{hidden layer} and an \textbf{output layer}. The size of the hidden layer is usually refers as the \textbf{deepth} of the network.
+A \textbf{Neural Network} is a universal function approximation. It is a nested composite functions like $f(g((h...)))$. In its simplest representation, an FeedForward Neural Network, it is composed by a \textbf{input layer}, an \textbf{hidden layer} and an \textbf{output layer}. The size of the hidden layer is usually refers as the \textbf{deepth} of the network.
 \subsubsection{Forward pass}
 In order to get the prediction out of our network we need to calculate the compute the activation at each layer $l$.
 Equation \ref{eq:forward_pass} shows the activation $a$ of layer $l$ for the $j$-th neuron on that layer.
@@ -86,6 +86,11 @@ By knowing that $a^l_j = \sigma(z^l_j)$, Equation \ref{eq:deltaRule_2} can be ex
 \delta^l_j = \frac{\partial E}{\partial a^l_j} \sigma'(z^l_j)
 \label{eq:deltaRule}	
 \end{equation}
+Also, delta at layer $l$ can be expressed by using the next $l+1$-th delta. Equation \ref{eq: delta_on_delta} shows the new rule.
+\begin{equation}
+\delta^l = (W^{l+1}\delta^{l+1}) * a^l
+\label{eq: delta_on_delta}
+\end{equation}
 \subsubsection{Back Propagation}
 The \textbf{Back Propagation} algorithm defines an efficient and interactive method to calculate the gradient at each layer. We want to compute $\frac{\partial E}{\partial w^l_{jk}}$. We can applying the delta rule: 
 \begin{equation}
@@ -97,6 +102,7 @@ After some calculation, Equation \ref{eq: back_propagation} shows how to calcula
 \frac{\partial E}{\partial w^l_{jk}} = a^{l-1}_k \delta^l_j
 \label{eq: back_propagation}
 \end{equation}  
+While $\delta^l$ can be calculated used the $l+1$-th layer's information, this is why is called \emph{back} propagation since we used the last layer information in order to, each time, find out the next layer's delta until we reach the input layer.
 \section{Convolutional Neural Network}
 \section{Recurrent Neural Network}
 \subsection{Definition}
@@ -108,26 +114,43 @@ A Recurrent Neural Networks can remember past decision by taking as input not on
 \label{fig: RNN}
 \end{figure}
 
-Very similar to a feedforward network, Equation \ref{eq: output_rnn} shows the weighted output at layer $j$. The first term on the right-hand is just the feedforward's weighted output, while the second term is the time-dependent term. Matrix $\omega$ is a hidden-state-to-hidden-state matrix. Basically, we are adding previous informations to out new state at time $t$.
+Very similar to a feedforward network, Equation \ref{eq: output_rnn} shows the weighted output at layer $j$. The first term on the right-hand is just the feedforward's weighted output, while the second term is the time-dependent term. Matrix $\omega$ is a hidden-state-to-hidden-state matrix. Basically, we are adding previous informations to our new state at time $t$.
 
 \begin{equation}
 z[t]^l = (W^la[t]^{l -1}+ b^l_j) + (\omega^l a[t-1]^{l-1})
 \label{eq: output_rnn}	
 \end{equation}
 Equation \ref{eq: activation_rnn} shows the activation of layer $j$ at time $t$.
-
 \begin{equation}
 a[t]^l	= \sigma(z[t]^l)
 \label{eq: activation_rnn}
 \end{equation}
+While Equation \ref{eq: rnn_weigt_update} shows the updating rule for the weight $w^l$
+\begin{equation}
+\begin{matrix}
+\frac{\partial E}{\partial w^[T]l_{jk}} =\sum^T_{t=0} \frac{\partial E}{\partial z[t]^l_j}	\\ 
+\\
+\frac{\partial E}{\partial w^[T]l_{jk}} = \sum^T_{t=0} a[t]^{l-1}_k \delta[t]^l_j	
+\end{matrix}
+\label{eq: rnn_weigt_update}
+\end{equation}
 
+\subsection{Vanishing Gradient Problem}
+Since the network layers and time steps are related to each other through multiplication, the gradient becomes smaller and smaller at each $t$. Figure \ref{fig: sigmoid_over_time} shows the effect of applying $sigmoid$ function over time. The data is flatted more and more at each step and therefore the slope will $\rightarrow 0$.
+\begin{figure}[H]
+\includegraphics[scale=0.5]{images/sigmoid_gradient_vanish}
+\includegraphics[scale=0.5]{images/sigmoid_gradient_vanish_derivative}
+\caption{Sigmoid and its derivative over time}
+\label{fig: sigmoid_over_time}	
+\end{figure}
+Since gradient expresses the change in all weights with respected to the error, without nothing it we cannot adjust properly the network.
 
 \section{Long Short Term Memory}
 \subsection{Definition}
 The Long Short Term Memory networks, or just \textbf{LSTM}, are a special type of RNN capable of learning long-term
-dependencies. They were introduced by \todo[inline]{metti ref a smitty}. They are composed by LSTM cell, 
+dependencies. They were introduced by Juergen Schmidhuber in order to solve the vanish gradient problem. They are composed by LSTM cell, 
 Figure \ref{fig: unrolled_LSTM} shows a unrolled representation.
-\begin{figure}[h]
+\begin{figure}[H]
 \centering
 \includegraphics[scale=0.5]{./images/LSTM3-chain.png}	
 \caption{An unrolled LSTM}
@@ -152,6 +175,22 @@ computes four basic operations:
 % \end{enumerate}
 \section{Support Vector Machine}
 \section{Deep Learning}
+\subsection{Supervised Learning}
+In \textbf{supervised} learning there is a fixed training set consists on a set of example patterns and their targets. The objective is to learn a map between the inputs and the targets. 'Supervised' comes from the likeness between a student that tries to answer a question, and a teacher that knows the solution.
+
+Therefore, at each step the algorithm can know how much wrong is prediction was, using a cost function, and it can improve it by applying a learning algorithm such as gradient descent in order to reduce the error.
+
+\subsection{Reinforcement Learning}
+In \textbf{reinforcement} learning the \emph{agent} takes \emph{actions} in an \emph{environment} in an to maximise a \emph{reward}. Figure \ref{fig: reinforcement_flow} shows the actions flow.
+
+\begin{figure}[h]
+\centering
+	\includegraphics[scale=0.5]{images/reinforcement}
+	\caption{Reinforcement Learning Flow}
+	\label{fig: reinforcement_flow}
+\end{figure}
+\subsection{Unsupervised Learning}
+
 \subsection{Training Techniques}
 \subsubsection{Mini-batch}
 \subsection{Regularisation}

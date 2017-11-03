@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2017.2.23)  3 NOV 2017 12:13
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2017.2.23)  3 NOV 2017 18:40
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -974,42 +974,57 @@ LaTeX Warning: Reference `eq:deltaRule_1' on page 2 undefined on input line 74.
 [2] <images/rnn.jpg, id=23, 797.98125pt x 320.19624pt>
 File: images/rnn.jpg Graphic file (type jpg)
  <use images/rnn.jpg>
-Package pdftex.def Info: images/rnn.jpg used on input line 106.
+Package pdftex.def Info: images/rnn.jpg used on input line 112.
 (pdftex.def)             Requested size: 319.18684pt x 128.07622pt.
- [3 <./images/rnn.jpg>] <./images/LSTM3-chain.png, id=28, 806.89455pt x 303.17265pt>
+ [3 <./images/rnn.jpg>] <images/sigmoid_gradient_vanish.png, id=29, 462.528pt x 346.896pt>
+File: images/sigmoid_gradient_vanish.png Graphic file (type png)
+ <use images/sigmoid_gradient_vanish.png>
+Package pdftex.def Info: images/sigmoid_gradient_vanish.png used on input line 141.
+(pdftex.def)             Requested size: 231.26343pt x 173.44757pt.
+ <images/sigmoid_gradient_vanish_derivative.png, id=31, 462.528pt x 346.896pt>
+File: images/sigmoid_gradient_vanish_derivative.png Graphic file (type png)
+ <use images/sigmoid_gradient_vanish_derivative.png>
+Package pdftex.def Info: images/sigmoid_gradient_vanish_derivative.png used on input line 142.
+(pdftex.def)             Requested size: 231.26343pt x 173.44757pt.
+ <./images/LSTM3-chain.png, id=32, 806.89455pt x 303.17265pt>
 File: ./images/LSTM3-chain.png Graphic file (type png)
  <use ./images/LSTM3-chain.png>
-Package pdftex.def Info: ./images/LSTM3-chain.png used on input line 132.
+Package pdftex.def Info: ./images/LSTM3-chain.png used on input line 155.
 (pdftex.def)             Requested size: 403.44629pt x 151.58595pt.
- <./images/LSTM3-focus-f.png, id=30, 659.8251pt x 203.8014pt>
+ [4 <./images/sigmoid_gradient_vanish.png> <./images/sigmoid_gradient_vanish_derivative.png>] <./images/LSTM3-focus-f.png, id=39, 659.8251pt x 203.8014pt>
 File: ./images/LSTM3-focus-f.png Graphic file (type png)
  <use ./images/LSTM3-focus-f.png>
-Package pdftex.def Info: ./images/LSTM3-focus-f.png used on input line 143.
+Package pdftex.def Info: ./images/LSTM3-focus-f.png used on input line 166.
 (pdftex.def)             Requested size: 329.91174pt x 101.90044pt.
- <./images/LSTM3-focus-i.png, id=31, 659.8251pt x 203.8014pt>
+ <./images/LSTM3-focus-i.png, id=40, 659.8251pt x 203.8014pt>
 File: ./images/LSTM3-focus-i.png Graphic file (type png)
  <use ./images/LSTM3-focus-i.png>
-Package pdftex.def Info: ./images/LSTM3-focus-i.png used on input line 145.
+Package pdftex.def Info: ./images/LSTM3-focus-i.png used on input line 168.
 (pdftex.def)             Requested size: 329.91174pt x 101.90044pt.
- <./images/LSTM3-focus-C.png, id=32, 659.8251pt x 203.8014pt>
+ <./images/LSTM3-focus-C.png, id=41, 659.8251pt x 203.8014pt>
 File: ./images/LSTM3-focus-C.png Graphic file (type png)
  <use ./images/LSTM3-focus-C.png>
-Package pdftex.def Info: ./images/LSTM3-focus-C.png used on input line 147.
+Package pdftex.def Info: ./images/LSTM3-focus-C.png used on input line 170.
 (pdftex.def)             Requested size: 329.91174pt x 101.90044pt.
- [4 <./images/LSTM3-chain.png> <./images/LSTM3-focus-f.png> <./images/LSTM3-focus-i.png>] <./images/LSTM3-focus-o.png, id=39, 659.8251pt x 203.8014pt>
+ <./images/LSTM3-focus-o.png, id=42, 659.8251pt x 203.8014pt>
 File: ./images/LSTM3-focus-o.png Graphic file (type png)
  <use ./images/LSTM3-focus-o.png>
-Package pdftex.def Info: ./images/LSTM3-focus-o.png used on input line 149.
+Package pdftex.def Info: ./images/LSTM3-focus-o.png used on input line 172.
 (pdftex.def)             Requested size: 329.91174pt x 101.90044pt.
- [5 <./images/LSTM3-focus-C.png> <./images/LSTM3-focus-o.png>]
+ [5 <./images/LSTM3-chain.png> <./images/LSTM3-focus-f.png> <./images/LSTM3-focus-i.png> <./images/LSTM3-focus-C.png>] <images/reinforcement.png, id=50, 546.843pt x 210.7875pt>
+File: images/reinforcement.png Graphic file (type png)
+ <use images/reinforcement.png>
+Package pdftex.def Info: images/reinforcement.png used on input line 188.
+(pdftex.def)             Requested size: 273.42082pt x 105.3935pt.
+ [6 <./images/LSTM3-focus-o.png> <./images/reinforcement.png>] [7]
 
-./main.tex:161: LaTeX Error: \begin{tikzpicture} on input line 55 ended by \end{document}.
+./main.tex:200: LaTeX Error: \begin{tikzpicture} on input line 55 ended by \end{document}.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.161 \end{document}
+l.200 \end{document}
                     
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
@@ -1031,18 +1046,18 @@ Package logreq Info: Writing requests to 'main.run.xml'.
 ### simple group (level 1) entered at line 55 ({)
 ### bottom level 
 Here is how much of TeX's memory you used:
- 22007 strings out of 493014
- 416272 string characters out of 6133351
- 809252 words of memory out of 5000000
- 25162 multiletter control sequences out of 15000+600000
- 9709 words of font info for 35 fonts, out of 8000000 for 9000
+ 22027 strings out of 493014
+ 416907 string characters out of 6133351
+ 808237 words of memory out of 5000000
+ 25178 multiletter control sequences out of 15000+600000
+ 10055 words of font info for 36 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 62i,8n,80p,812b,788s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb>
-Output written on "/Users/VaeVictis/Dropbox/Master_AI/I Semester/Machine Learning/Midterm/docs/.texpadtmp/main.pdf" (5 pages, 674002 bytes).
+ 62i,8n,80p,812b,722s stack positions out of 5000i,500n,10000p,200000b,80000s
+</usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb>
+Output written on "/Users/VaeVictis/Dropbox/Master_AI/I Semester/Machine Learning/Midterm/docs/.texpadtmp/main.pdf" (7 pages, 800869 bytes).
 PDF statistics:
- 83 PDF objects out of 1000 (max. 8388607)
- 52 compressed objects within 1 object stream
+ 105 PDF objects out of 1000 (max. 8388607)
+ 64 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 43 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 58 words of extra memory for PDF output out of 10000 (max. 10000000)
 
