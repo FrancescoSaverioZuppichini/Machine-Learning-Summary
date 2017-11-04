@@ -54,7 +54,7 @@ The algorithm uses stochastic \textbf{Gradient Descent} in order to update the w
 \end{equation}
 \section{Neural Network}
 A \textbf{Neural Network} is a universal function approximation. It is a nested composite functions like $f(g((h...)))$. In its simplest representation, an FeedForward Neural Network, it is composed by a \textbf{input layer}, an \textbf{hidden layer} and an \textbf{output layer}. The size of the hidden layer is usually refers as the \textbf{deepth} of the network.
-\subsubsection{Forward pass}
+\subsection{Forward pass}
 In order to get the prediction out of our network we need to calculate the compute the activation at each layer $l$.
 Equation \ref{eq:forward_pass} shows the activation $a$ of layer $l$ for the $j$-th neuron on that layer.
 
@@ -69,7 +69,7 @@ Where $w^l_{jk}$ is the connection from neuron $k$ in the $l-1$ layer to $j$, $a
 a^l = \sigma(W^la^{l-1} + b^l)
 \end{equation}
 
-\subsubsection{Delta rules}
+\subsection{Delta rules}
 In a Neural Network the weights are iteratively changed in order to decrease the cost function, called $E$. We want to find out how much they should be updated, in order to do so we need the output error at each layer. Equation \ref{eq:deltaRule_1} defines $\delta^l_j$ as the output error of neuron $j$ in layer $l$
 \begin{equation}
 	\delta^l_j = \frac{\partial E}{\partial z^l_j}
@@ -90,7 +90,7 @@ Also, delta at layer $l$ can be expressed by using the next $l+1$-th delta. Equa
 \delta^l = (W^{l+1}\delta^{l+1}) * a^l
 \label{eq: delta_on_delta}
 \end{equation}
-\subsubsection{Back Propagation}
+\subsection{Back Propagation}
 The \textbf{Back Propagation} algorithm defines an efficient and interactive method to calculate the gradient at each layer. We want to compute $\frac{\partial E}{\partial w^l_{jk}}$. We can applying the delta rule: 
 \begin{equation}
 \frac{\partial E}{\partial w^l_{jk}} = \frac{\partial E}{\partial z^l_j}\frac{\partial z^l_j}{\partial w^l_{jk}} =	
@@ -103,18 +103,36 @@ After some calculation, Equation \ref{eq: back_propagation} shows how to calcula
 \end{equation}  
 While $\delta^l$ can be calculated used the $l+1$-th layer's information, this is why is called \emph{back} propagation since we used the last layer information in order to, each time, find out the next layer's delta until we reach the input layer.
 \section{Convolutional Neural Network}
+Convolutional neural networks are neural network that uses a \textbf{convolutional} operation at place in at least one layer. They are used for processing grid-like data, such as time-series, a 1D grid and images, 2D grid. Figure \ref{fig: cnn} shows a the generic architecture for a CNN.
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.35]{images/cnn}
+\label{fig: cnn}	
+\end{figure}
+\subsection{Notation}
+We express an Image as a function $f: \mathbb{Z}^2 \rightarrow \mathbb{R}^c$, where $c$ is the number of channel, in a color image there are three (rgb). A Windows is a subset of the image domain, $W \in \matbb{Z}^2$, that corresponds to a rectangle inside the image.
+\subsection{Convolutional Layer}
+As in a hidden layer, a Convolutional layer is formed by $n$ neurons. The difference is that they are not necessarily connect to the activations of the neurons in the previous layer, but only in a particular window.
+The architecture is composed as followg:
+\begin{itemize}
+	\item A input $[w*h*c]$ holds the an image
+	\item A convolutional layer computes the output of its neurons that are connected to some window in the input, each computes the dot product between its weight and the region they are connected to. Each neuron apply a filter, usually of size $3x3$ or $5x5$.
+	\item A rectifier function, RELU $max(0,x)$, is applied.
+	\item A max-pool layer perform a downsampling operation.
+	\item A fully connected layer computes the class scores
+\end{itemize}
+
 \section{Recurrent Neural Network}
 \subsection{Definition}
 A Recurrent Neural Networks can remember past decision by taking as input not only the current input but also the last time state. For this reason it is said that a RNN has \textbf{memory}. Figure \ref{fig: RNN} shows a classic representation. Usually, a RNN is represented unfolded to highlight the time dependencies. Due to its ability to remember it mostly used in text and speech recognition.
 \begin{figure}[h]
 \centering
-\includegraphics[scale=0.4]{images/rnn}	
+\includegraphics[scale=0.2]{images/rnn}	
 \caption{Fold and Unfold representation of a RNN}
 \label{fig: RNN}
 \end{figure}
 
 Very similar to a feedforward network, Equation \ref{eq: output_rnn} shows the weighted output at layer $j$. The first term on the right-hand is just the feedforward's weighted output, while the second term is the time-dependent term. Matrix $\omega$ is a hidden-state-to-hidden-state matrix. Basically, we are adding previous informations to our new state at time $t$.
-
 \begin{equation}
 z[t]^l = (W^la[t]^{l -1}+ b^l_j) + (\omega^l a[t-1]^{l-1})
 \label{eq: output_rnn}	
@@ -133,7 +151,14 @@ While Equation \ref{eq: rnn_weigt_update} shows the updating rule for the weight
 \end{matrix}
 \label{eq: rnn_weigt_update}
 \end{equation}
-
+\subsection{Loss}
+Usually in a RNN the loss used function is the \textbf{cross-entropy loss}. For example, suppose we have $N$ samples with each sample labeled by $n, ... N$. The loss function is then given by:
+\begin{equation}
+E = -\frac{1}{N}\sum^N_{n=1}	t_n \log y_n
+\label{eq: cross_entropy}	
+\end{equation}
+Where $t$ is the true label and $y$ our prediction
+ 
 \subsection{Vanishing Gradient Problem}
 Since the network layers and time steps are related to each other through multiplication, the gradient becomes smaller and smaller at each $t$. Figure \ref{fig: sigmoid_over_time} shows the effect of applying $sigmoid$ function over time. The data is flatted more and more at each step and therefore the slope will $\rightarrow 0$.
 \begin{figure}[H]
@@ -213,12 +238,12 @@ g(x) = w x + b = \pm 1
 \begin{matrix}
 r = \frac{g(x^{(2))}}{||w_o||} \\ 
 \\
-r =  \left  \{ 
+r =  \left  \{
  \begin{matrix}
   \frac{1}{||w_o||} \quad \text{if} \quad d^{(s)} = 1\\
-  - \frac{1}{||w_o||} \quad \text{if} \quad d^{(s)} = -1
-  \end{matrix}	
-}
+  - \frac{1}{||w_o||} \quad \text{if} \quad d^{(s)} = -1 \\
+  \end{matrix}	\\
+\\
 r = \frac{2}{||w_o||}
 \end{matrix}
 \label{eq: margin}
@@ -272,10 +297,9 @@ k(x, x_i) = \phi(x_i)^T\phi(x)  \\
 \end{equation}
 The function $k(x, x_i)$ is called the \textbf{kernel}. According to this, we can re-express the optimal decise surface, Equation \ref{eq: optimal_hyperplane_feature}, by:
 \begin{equation}
-sum^{N^{(s)}}_{i = 1}a_id_ik(x_i,x) = 0
+\sum^{N^{(s)}}_{i = 1}a_id_ik(x_i,x) = 0
 \label{eq: optimal_hyperplane_feature}
 \end{equation} 
-
 Basically, the \textbf{kernel} computes the inner product of the images produced in the feature spaces under embedding $\phi$ of two data points in the input space. Equation \ref{eq: dual_problem_kernel} states the dual problem.
 \begin{equation}
     \label{eq: dual_problem_kernel}
@@ -286,7 +310,7 @@ Basically, the \textbf{kernel} computes the inner product of the images produced
            & 0 \le \lambda_i \le C 
          \end{aligned}
     \end{equation}
-
+The kernel must be decided \emph{a priori} from the user.
 \section{Deep Learning}
 \subsection{Supervised Learning}
 In \textbf{supervised} learning there is a fixed training set consists on a set of example patterns and their targets. The objective is to learn a map between the inputs and the targets. 'Supervised' comes from the likeness between a student that tries to answer a question, and a teacher that knows the solution.
