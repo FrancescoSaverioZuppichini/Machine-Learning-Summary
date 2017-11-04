@@ -266,7 +266,12 @@ This basic linear classifier can still be used to classify non-linear separable 
 \end{array}
 \label{eq: softMargin}
 \end{equation}
-
+We skip the dual problems for simplicity, they are very simular to the non linear case only there is no \emph{kernel} and for the case of \emph{soft margin} the Lagrange multipliers must be also less than $C$. Thus we can express the optimal weight using this new information as follow:
+\begin{equation}
+w_o = \sum_{i=1}^{(s)}\lambda_{0,j}d_ix_i^Tx^{(s)}
+\label{eq: optimal_weight_lagrande}
+\end{equation}
+There $\lambda_{0,j}$ is a Lagrange multiplier.
 \subsection{Non linear separable data}
 As we stated before, a SVM maps from a linear input set to a non-linear \emph{feature set} using the  \emph{feature map} to infinite dimensional space, called \emp{feature space}, then it perform a linear map to the \emph{output state} . Figure \ref{fig: SVM} shows a graphical representation of a generic SVM
 \begin{figure}[H]
@@ -280,7 +285,7 @@ Specifically, the \emph{feature map} is made by multiplying the inputs point wit
 \phi(x) = \{\varphi_j(x) \}^{\infty}_{j=1}
 \label{eq: feature_map}
 \end{equation}
-Keeping in mind the Equation \ref{eq: optimal_hyperplane}, the optimal decise surface, we can re-state the dual problem constrain arise as:
+Keeping in mind the Equation \ref{eq: optimal_hyperplane}, the optimal decise surface, we can re-state the optimal weight Equation \ref{eq: optimal_weight_lagrande} as follow:
 \begin{equation}
 w = \sum^{N^{(s)}}_{i = 1}a_id_i\phi(x_i)	
 \end{equation}

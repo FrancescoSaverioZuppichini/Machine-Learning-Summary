@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2017.2.23)  4 NOV 2017 16:17
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2017.2.23)  4 NOV 2017 22:25
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -979,8 +979,8 @@ With luck, this will get me unwedged. But if you
 really didn't forget anything, try typing `2' now; then
 my insertion and my current dilemma will both disappear.
 
-./main.tex:271: Undefined control sequence.
-l.271 ...o infinite dimensional space, called \emp
+./main.tex:276: Undefined control sequence.
+l.276 ...o infinite dimensional space, called \emp
                                                   {feature space}, then it p...
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -988,30 +988,17 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-
-./main.tex:274: LaTeX Error: File `images/SVM' not found.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.274 \includegraphics[scale=0.3]{images/SVM}
-                                             
-I could not locate the file with any of these extensions:
-.png,.pdf,.jpg,.mps,.jpeg,.jbig2,.jb2,.PNG,.PDF,.JPG,.JPEG,.JBIG2,.JB2,.eps
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-[8] <images/reinforcement.png, id=65, 546.843pt x 210.7875pt>
+<images/SVM.png, id=62, 824.07875pt x 481.8pt>
+File: images/SVM.png Graphic file (type png)
+ <use images/SVM.png>
+Package pdftex.def Info: images/SVM.png used on input line 279.
+(pdftex.def)             Requested size: 247.22552pt x 144.5411pt.
+ [8] [9 <./images/SVM.png>] <images/reinforcement.png, id=70, 546.843pt x 210.7875pt>
 File: images/reinforcement.png Graphic file (type png)
  <use images/reinforcement.png>
-Package pdftex.def Info: images/reinforcement.png used on input line 325.
+Package pdftex.def Info: images/reinforcement.png used on input line 330.
 (pdftex.def)             Requested size: 273.42082pt x 105.3935pt.
-
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-[9] [10 <./images/reinforcement.png>] (/Users/VaeVictis/Dropbox/Master_AI/I Semester/Machine Learning/Midterm/docs/.texpadtmp/main.aux)
+ [10 <./images/reinforcement.png>] (/Users/VaeVictis/Dropbox/Master_AI/I Semester/Machine Learning/Midterm/docs/.texpadtmp/main.aux)
 
 LaTeX Warning: There were undefined references.
 
@@ -1023,18 +1010,18 @@ Package logreq Info: Writing requests to 'main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 22082 strings out of 493014
- 417792 string characters out of 6133351
- 808439 words of memory out of 5000000
- 25216 multiletter control sequences out of 15000+600000
+ 22078 strings out of 493014
+ 417859 string characters out of 6133351
+ 808448 words of memory out of 5000000
+ 25221 multiletter control sequences out of 15000+600000
  10055 words of font info for 36 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  62i,14n,80p,812b,722s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb>
-Output written on "/Users/VaeVictis/Dropbox/Master_AI/I Semester/Machine Learning/Midterm/docs/.texpadtmp/main.pdf" (10 pages, 1067687 bytes).
+Output written on "/Users/VaeVictis/Dropbox/Master_AI/I Semester/Machine Learning/Midterm/docs/.texpadtmp/main.pdf" (10 pages, 1182130 bytes).
 PDF statistics:
- 118 PDF objects out of 1000 (max. 8388607)
+ 120 PDF objects out of 1000 (max. 8388607)
  70 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 68 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 73 words of extra memory for PDF output out of 10000 (max. 10000000)
 
