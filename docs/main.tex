@@ -52,7 +52,6 @@ The algorithm uses stochastic \textbf{Gradient Descent} in order to update the w
 \begin{equation}
 	\frac{\partial E}{\partial w_k} = y - t
 \end{equation}
-\todo[inline]{Decide if use \nabla or partial or booth}
 \section{Neural Network}
 A \textbf{Neural Network} is a universal function approximation. It is a nested composite functions like $f(g((h...)))$. In its simplest representation, an FeedForward Neural Network, it is composed by a \textbf{input layer}, an \textbf{hidden layer} and an \textbf{output layer}. The size of the hidden layer is usually refers as the \textbf{deepth} of the network.
 \subsubsection{Forward pass}
@@ -174,6 +173,120 @@ computes four basic operations:
 	
 % \end{enumerate}
 \section{Support Vector Machine}
+
+A Support Vector Machine maps the input space to a high dimensional space, called \emph{feature space}, using a set of non linear function, 
+called the \emph{feature vector}, defined as $\phi(x)$. Then, it constructs an optimal hyperplane in order to separate the features discovered in the \emph{feature set}
+in order to classify the points that belong to the positive or negative class. Equation \ref{eq: decision_surface} shows the decision surface.
+\begin{equation}
+    w^T\phi(x)= 0	
+        \label{eq: decision_surface}
+\end{equation}
+Where $\phi(x) = \{\varphi_j(x)\}_j^{\infty}$, is the set of non-linear function, called \emph{feature vector}. It tries to find the \textbf{support vectors}, a subset of the data-set, in order to maximise the margin between them using Quadratic Programming.
+
+\subsection{Linear separable data}
+In the simple linear case, where the data is linearly separable, Equation \ref{eq: decision_surface_linear} can be re-express by Equation \ref{eq: decision_surface_linear}, notice that we do not need the non-linear map anymore:
+\begin{equation}
+    w^Tx + b= 0	
+    \label{eq: decision_surface_linear}
+\end{equation}
+Equation \ref{optimal_hyperplane} shows the optimal hyperplane for the linear case
+\begin{equation}
+    \begin{array}{r c l}
+w^T_0x + b_0 \ge +1 && \text{for} \quad d_i = + 1  \\
+w^T_0x + b_0  \le -1 && \text{for} \quad   d_i = - 1 
+\end{array}
+   \label{eq: optimal_hyperplane}
+\end{equation}
+In this case, the \textbf{support vectors} is a small subset of points $(x_i,d_i)$ of the dataset for which Equation \ref{eq: optimal_hyperplane} holds. Figure \ref{fig: support_vector} shows a graphic representation. 
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.5]{images/support_vector}
+\caption{Support Vectors}
+\label{fig: support_vector}
+\end{figure}
+Therefore we want to find the maximum margin possible, defined in Equation \ref{eq: margin}.
+\begin{equation}
+g(x) = w x + b = \pm 1
+\label{eq: discriminant}
+\end{equation}
+\begin{equation}
+\begin{matrix}
+r = \frac{g(x^{(2))}}{||w_o||} \\ 
+\\
+r =  \left  \{ 
+ \begin{matrix}
+  \frac{1}{||w_o||} \quad \text{if} \quad d^{(s)} = 1\\
+  - \frac{1}{||w_o||} \quad \text{if} \quad d^{(s)} = -1
+  \end{matrix}	
+}
+r = \frac{2}{||w_o||}
+\end{matrix}
+\label{eq: margin}
+\end{equation}
+Where $g(x)$ is the discriminant function, Equation \ref{eq: discriminant}, $x^(s)$ are the support vectors and $w_0$ is the  weight. Therefore, maximising the margin is equal to minimising $w_0$, so we can state our object function and the constrains, defined in Equation \ref{eq: hard_margin}. This is call \textbf{hard-margin}.
+\begin{equation}
+ \begin{array}{r c l}
+	\text{min} \quad \Phi(w) = \frac{1}{2} w^Tw \\ 
+	\\
+	\text{subject to} \quad d_i(w_i^Tw_i + b_i) \ge 1 && \text{for} \quad 1 = 1,2, ..., N
+\end{array}
+\label{eq: hard_margin}
+\end{equation}
+This basic linear classifier can still be used to classify non-linear separable data by adding a set of non negative variables, $slacks$, $\{\epsilon\}_i^N$ in order to measure the deviation of the data from the ideal condition of pattern separability. Equation \ref{eq: softMargin} shows the updated equation, this method is called \textbf{soft margin}
+\begin{equation}
+ \begin{array}{r c l}
+\text{min} \quad \Phi(w) = \frac{1}{2} w^Tw + c \sum_{k=0}^R \epsilon_k \\
+	\\
+\text{subject to} \quad d_i(w_i^Tw_i + b_i) \ge 1 - \epsilon_i && \epsilon_i > 0 \quad \text{for} \quad \text{all} \quad  i
+\end{array}
+\label{eq: softMargin}
+\end{equation}
+
+\subsection{Non linear separable data}
+As we stated before, a SVM maps from a linear input set to a non-linear \emph{feature set} using the  \emph{feature map} to infinite dimensional space, called \emp{feature space}, then it perform a linear map to the \emph{output state} . Figure \ref{fig: SVM} shows a graphical representation of a generic SVM
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.3]{images/SVM}
+\caption{Mapping in a SVM}
+\label{fig: SVM}
+\end{figure}
+Specifically, the \emph{feature map} is made by multiplying the inputs point with the \emph{feature vector}, a set of non linear function that transform , defined as follow:
+\begin{equation}
+\phi(x) = \{\varphi_j(x) \}^{\infty}_{j=1}
+\label{eq: feature_map}
+\end{equation}
+Keeping in mind the Equation \ref{eq: optimal_hyperplane}, the optimal decise surface, we can re-state the dual problem constrain arise as:
+\begin{equation}
+w = \sum^{N^{(s)}}_{i = 1}a_id_i\phi(x_i)	
+\end{equation}
+Hence, substituting Equation \ref{eq: optimal_hyperplane}, we obtain
+\begin{equation}
+\sum^{N^{(s)}}_{i = 1}a_id_i\phi(x_i)^T\phi(x) = 0
+\label{eq: optimal_hyperplane_feature}
+\end{equation}
+The term $\phi(x_i)^T\phi(x)$ represent a \emph{inner product}, let us denote it as the scalar:
+\begin{equation}
+\label{eq: kernel}
+k(x, x_i) = \phi(x_i)^T\phi(x)  \\
+= \sum^{\infty}_{j=1} \varphi_j(x_i)\varphi_j(x)
+\end{equation}
+The function $k(x, x_i)$ is called the \textbf{kernel}. According to this, we can re-express the optimal decise surface, Equation \ref{eq: optimal_hyperplane_feature}, by:
+\begin{equation}
+sum^{N^{(s)}}_{i = 1}a_id_ik(x_i,x) = 0
+\label{eq: optimal_hyperplane_feature}
+\end{equation} 
+
+Basically, the \textbf{kernel} computes the inner product of the images produced in the feature spaces under embedding $\phi$ of two data points in the input space. Equation \ref{eq: dual_problem_kernel} states the dual problem.
+\begin{equation}
+    \label{eq: dual_problem_kernel}
+    \begin{aligned}
+    \text{Maximixe } \lambda & \quad \sum^N_{i=1} \lambda_i - \frac{1}{2} \sum_{i=1}^N \sum_{j=1}^N \lambda_i \lambda_j d_i d_j k(x_i,x_j) \\
+     \text{Subject to} & \\
+           & \sum^N_{i=1} \lambda_i d_i = 0\quad \\
+           & 0 \le \lambda_i \le C 
+         \end{aligned}
+    \end{equation}
+
 \section{Deep Learning}
 \subsection{Supervised Learning}
 In \textbf{supervised} learning there is a fixed training set consists on a set of example patterns and their targets. The objective is to learn a map between the inputs and the targets. 'Supervised' comes from the likeness between a student that tries to answer a question, and a teacher that knows the solution.
