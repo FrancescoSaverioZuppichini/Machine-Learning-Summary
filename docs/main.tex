@@ -25,14 +25,37 @@ The aim of this report is to summarise the topics threaded in my Machine Learnin
 \section{Gradient Descend}
 The gradient descend is an iterative optimisation algorithm that follows the direction of the negative gradient in order to minimised an objective function. It can be effectively used as Learning Algorithm because it reduces the error function, Equation \ref{eq: MSE_perceptron}, and adjusts the weights properly. Equation \ref{eq: GD} shows the generic update rule.
 \begin{equation}
-\label{eq: gradient_descent}
 	w_{k + 1} = w_k - \eta \nabla E(w_k)
+	\label{eq: gradient_descent}
 \end{equation}
 Where $\eta$ is the step size, also called \textbf{learning rate} in Machine Learning. This parameter influences the behaviour of gradient descent, a small number can lead to local minimum, while a bigger learning rate could "over-shoot" and decreasing the converge ration. Later in this project you will see how a wrong $\eta$ can strongly change the output of a Neural Network.
 
 For this reasons, numerous improvements have been proposed to avoid local minima and increase its convergence ration, some of them are: Conjugate Gradient and Momentum.
+\subsection{Loss Function}
+In order to apply gradient descend we need a loss function to minimise, usually they are divided by problem type;
+
+\begin{itemize}
+	\item \textbf{For Regression} \\
+	Mean Square Error: \\
+	\begin{equation}
+	E = \frac{1}{N}\sum_{i=1}^N(\underbrace{y_i}_{\text{predicted}} - \underbrace{t_1}_{\text{actual}})^2
+	\label{eq: MSE}	
+	\end{equation}
+	\item \textbf{For Classification} \\
+	SoftMax Function:
+	\begin{equation}
+	y_j = \frac{e^{x^Tw_j}}{\sum_{k = 1}^K e^{x^Tw_k}}
+	\label{eq: soft_max}	
+	\end{equation}
+	with negative log likelihood:\\
+	\begin{equation}
+	- \sum_{i = 1}^K t_ilog(y_i)
+	\label{eq: log_like}
+	\end{equation}
+	
+\end{itemize}
 \section{Perceptron}
-\section{Definition}
+\subsection{Definition}
 The \textbf{Perceptron} is binary  \textbf{linear classifier} algorithm used in \textbf{supervised learning}. It can be seen as the most basic form of Neural Network. Equation \ref{eq: perceptron} defines the its output.
 \begin{equation}
 f(x) \left \{ 
@@ -42,11 +65,11 @@ f(x) \left \{
   \end{tabular}	
   \label{eq: perceptron}
 \end{equation}
-Given a training set $D = \{ (x_1,t_1}, ... , (x_n,t_i) \}$, $x_i \in X$ and $t_i \in Y$ denotes the input vector and the target vector respectively. We express $y = f(x)$ as the output of the algorithm, $w$ the weight and $b$ the bias. At each iteration the error is calculated using the Mean Square Error, defined in equation \ref{eq: MSE_perceptron}
-\begin{equation}
-	E(w) = \frac{1}{N}\sum_{i = 1}^N(\underbrace{y(x_i,w_i)}_{\text{predicted}} - \underbrace{t_i}_{\text{actual}})^2)
-	\label{eq: MSE_perceptron}
-\end{equation}
+Given a training set $D = \{ (x_1,t_1}, ... , (x_n,t_i) \}$, $x_i \in X$ and $t_i \in Y$ denotes the input vector and the target vector respectively. We express $y = f(x)$ as the output of the algorithm, $w$ the weight and $b$ the bias. At each iteration the error is calculated using the Mean Square Error, defined in equation \ref{eq: MSE}
+%\begin{equation}
+%	E(w) = \frac{1}{N}\sum_{i = 1}^N(\underbrace{y(x_i,w_i)}_{\text{predicted}} - \underbrace{t_i}_{\text{actual}})^2)
+%	\label{eq: MSE_perceptron}
+%\end{equation}
 The algorithm uses stochastic \textbf{Gradient Descent} in order to update the weight at each iteration using the formula defined in Equation \ref{eq: gradient_descent}.
  
 \begin{equation}
@@ -70,7 +93,7 @@ a^l = \sigma(W^la^{l-1} + b^l)
 \end{equation}
 
 \subsection{Delta rules}
-In a Neural Network the weights are iteratively changed in order to decrease the cost function, called $E$. We want to find out how much they should be updated, in order to do so we need the output error at each layer. Equation \ref{eq:deltaRule_1} defines $\delta^l_j$ as the output error of neuron $j$ in layer $l$
+In a Neural Network the weights are iteratively changed in order to decrease the cost function, called $E$. We want to find out how much they should be updated, in order to do so we need the output error at each layer. Equation \ref{eq: deltaRule_1} defines $\delta^l_j$ as the output error of neuron $j$ in layer $l$
 \begin{equation}
 	\delta^l_j = \frac{\partial E}{\partial z^l_j}
 	\label{eq: deltaRule_1}
@@ -107,21 +130,35 @@ Convolutional neural networks are neural network that uses a \textbf{convolution
 \begin{figure}[H]
 \centering
 \includegraphics[scale=0.35]{images/cnn}
+\caption{}
 \label{fig: cnn}	
 \end{figure}
 \subsection{Notation}
 We express an Image as a function $f: \mathbb{Z}^2 \rightarrow \mathbb{R}^c$, where $c$ is the number of channel, in a color image there are three (rgb). A Windows is a subset of the image domain, $W \in \matbb{Z}^2$, that corresponds to a rectangle inside the image.
 \subsection{Convolutional Layer}
 As in a hidden layer, a Convolutional layer is formed by $n$ neurons. The difference is that they are not necessarily connect to the activations of the neurons in the previous layer, but only in a particular window.
-The architecture is composed as followg:
+The architecture is composed as following:
 \begin{itemize}
 	\item A input $[w*h*c]$ holds the an image
 	\item A convolutional layer computes the output of its neurons that are connected to some window in the input, each computes the dot product between its weight and the region they are connected to. Each neuron apply a filter, usually of size $3x3$ or $5x5$.
-	\item A rectifier function, RELU $max(0,x)$, is applied.
-	\item A max-pool layer perform a downsampling operation.
-	\item A fully connected layer computes the class scores
+	\item A rectifier function, RELU $max(0,x)$, is applied in order set to zero the not discovered features.
+	\item A max-pool layer perform a downsampling operation, storing only the most relevant feature (the biggest number) in a little window size (usually $2x2$. Figure \ref{fig: pool} shows a visual representation of this operation
+\begin{figure}[H]
+\centering
+	\includegraphics[scale=0.5]{images/pool}
+	\caption{}
+	\label{fig: pool}
+\end{figure}
+	\item A fully connected layer computes the class scores using softmax, Equation \ref{eq: soft_max} in order to equally distribute the probabilities.
 \end{itemize}
-
+After each CONV $\rightarrow$ RELU $\rightarrow$ POOL layer the network learn more complex pattern each time, Figure \ref{fig: cnn_faces} shows an example where in the first layer the network can only recognise little lines and in the last one it is able to merge all the previous information and classify very complex pattern such as a human face
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.35]{images/cnn_faces}
+\caption{}
+\label{fig: cnn_faces}	
+\end{figure}
+The \textbf{pooling} layer is used to get out from the convolutional layer only the most important features, in order to do so usually a $2X2$ matrix is 
 \section{Recurrent Neural Network}
 \subsection{Definition}
 A Recurrent Neural Networks can remember past decision by taking as input not only the current input but also the last time state. For this reason it is said that a RNN has \textbf{memory}. Figure \ref{fig: RNN} shows a classic representation. Usually, a RNN is represented unfolded to highlight the time dependencies. Due to its ability to remember it mostly used in text and speech recognition.
@@ -152,12 +189,12 @@ While Equation \ref{eq: rnn_weigt_update} shows the updating rule for the weight
 \label{eq: rnn_weigt_update}
 \end{equation}
 \subsection{Loss}
-Usually in a RNN the loss used function is the \textbf{cross-entropy loss}. For example, suppose we have $N$ samples with each sample labeled by $n, ... N$. The loss function is then given by:
-\begin{equation}
-E = -\frac{1}{N}\sum^N_{n=1}	t_n \log y_n
-\label{eq: cross_entropy}	
-\end{equation}
-Where $t$ is the true label and $y$ our prediction
+Usually in a RNN the loss used function is the \textbf{cross-entropy loss}. For example, suppose we have $K$ samples with each sample labeled by $i, ... K$. The loss function is then given by Equation \ref{eq: log_like}
+%\begin{equation}
+%E = -\frac{1}{N}\sum^N_{n=1}	t_n \log y_n
+%\label{eq: cross_entropy}	
+%\end{equation}
+
  
 \subsection{Vanishing Gradient Problem}
 Since the network layers and time steps are related to each other through multiplication, the gradient becomes smaller and smaller at each $t$. Figure \ref{fig: sigmoid_over_time} shows the effect of applying $sigmoid$ function over time. The data is flatted more and more at each step and therefore the slope will $\rightarrow 0$.
@@ -268,7 +305,7 @@ This basic linear classifier can still be used to classify non-linear separable 
 \end{equation}
 We skip the dual problems for simplicity, they are very simular to the non linear case only there is no \emph{kernel} and for the case of \emph{soft margin} the Lagrange multipliers must be also less than $C$. Thus we can express the optimal weight using this new information as follow:
 \begin{equation}
-w_o = \sum_{i=1}^{(s)}\lambda_{0,j}d_ix_i^Tx^{(s)}
+w_o = \sum_{i=1}^{N(s)}\lambda_{0,j}d_ix_i^Tx^{(s)}
 \label{eq: optimal_weight_lagrande}
 \end{equation}
 There $\lambda_{0,j}$ is a Lagrange multiplier.
@@ -276,7 +313,7 @@ There $\lambda_{0,j}$ is a Lagrange multiplier.
 As we stated before, a SVM maps from a linear input set to a non-linear \emph{feature set} using the  \emph{feature map} to infinite dimensional space, called \emp{feature space}, then it perform a linear map to the \emph{output state} . Figure \ref{fig: SVM} shows a graphical representation of a generic SVM
 \begin{figure}[H]
 \centering
-\includegraphics[scale=0.3]{images/SVM}
+\includegraphics[scale=0.4]{images/SVM}
 \caption{Mapping in a SVM}
 \label{fig: SVM}
 \end{figure}
