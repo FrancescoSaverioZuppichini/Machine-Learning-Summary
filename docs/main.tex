@@ -31,7 +31,7 @@ The gradient descend is an iterative optimisation algorithm that follows the dir
 Where $\eta$ is the step size, also called \textbf{learning rate} in Machine Learning. This parameter influences the behaviour of gradient descent, a small number can lead to local minimum, while a bigger learning rate could "over-shoot" and decreasing the converge ration. Later in this project you will see how a wrong $\eta$ can strongly change the output of a Neural Network.
 
 For this reasons, numerous improvements have been proposed to avoid local minima and increase its convergence ration, some of them are: Conjugate Gradient and Momentum.
-\subsection{Loss Function}
+\subsection{Loss Functions}
 In order to apply gradient descend we need a loss function to minimise, usually they are divided by problem type;
 
 \begin{itemize}
@@ -88,12 +88,13 @@ a^l_j = \sigma(\sum_k w^l_{jk}a^{l-1}_k + b^l_j)
 
 Where $w^l_{jk}$ is the connection from neuron $k$ in the $l-1$ layer to $j$, $a^{l-1}$ is the activation of the previous layer and $b^l_j$ is the bias of $j$-th neuron in the $l$ layer. With this in mind, we can rewrite \ref{eq:forward_pass_vectorized} in a efficient vectorised form
 \begin{equation}
-\label{eq:forward_pass_vectorized}
 a^l = \sigma(W^la^{l-1} + b^l)
+\label{eq:forward_pass_vectorized}
+
 \end{equation}
 
 \subsection{Delta rules}
-In a Neural Network the weights are iteratively changed in order to decrease the cost function, called $E$. We want to find out how much they should be updated, in order to do so we need the output error at each layer. Equation \ref{eq: deltaRule_1} defines $\delta^l_j$ as the output error of neuron $j$ in layer $l$
+In a Neural Network the weights are iteratively changed in order to decrease the cost function, called $E$. We want to find out how much they should be updated, in order to do so we need the output error at each layer. Equation \ref{eq: deltaRule_1} defines $\delta^l_j$ as the \textbf{output error} of neuron $j$ in layer $l$
 \begin{equation}
 	\delta^l_j = \frac{\partial E}{\partial z^l_j}
 	\label{eq: deltaRule_1}
@@ -103,11 +104,12 @@ Strictly speaking, $\delta^l_j$, is how much the error function changes by chang
 \delta^l_j = \frac{\partial E}{\partial a^l_j} \frac{\partial a^l_j}{\partial z^l_j}
 \label{eq:deltaRule_2}
 \end{equation}
-By knowing that $a^l_j = \sigma(z^l_j)$, Equation \ref{eq:deltaRule_2} can be expressed as
+By knowing that $a^l_j = \sigma(z^l_j)$, Equation \ref{eq:deltaRule_2} can be expressed as:
 \begin{equation}
 \delta^l_j = \frac{\partial E}{\partial a^l_j} \sigma'(z^l_j)
 \label{eq:deltaRule}	
 \end{equation}
+
 Also, delta at layer $l$ can be expressed by using the next $l+1$-th delta. Equation \ref{eq: delta_on_delta} shows the new rule.
 \begin{equation}
 \delta^l = (W^{l+1}\delta^{l+1}) * a^l
@@ -124,7 +126,12 @@ After some calculation, Equation \ref{eq: back_propagation} shows how to calcula
 \frac{\partial E}{\partial w^l_{jk}} = a^{l-1}_k \delta^l_j
 \label{eq: back_propagation}
 \end{equation}  
-While $\delta^l$ can be calculated used the $l+1$-th layer's information, this is why is called \emph{back} propagation since we used the last layer information in order to, each time, find out the next layer's delta until we reach the input layer.
+While \ref{eq: back_propagation_bias} shows how to calculate the derivative of the error with respect to the bias.
+\begin{equation}
+\frac{\partial E}{\partial b^l_j} = \delta^l_j
+\label{eq: back_propagation_bias}
+\end{equation}
+We know from Equation \ref{eq: deltaRule}, $\delta^l$ can be calculated used the $l+1$-th layer's information, this is why is called \emph{back} propagation since we used the last layer information in order to, each time, find out the next layer's delta until we reach the input layer.
 \section{Convolutional Neural Network}
 Convolutional neural networks are neural network that uses a \textbf{convolutional} operation at place in at least one layer. They are used for processing grid-like data, such as time-series, a 1D grid and images, 2D grid. Figure \ref{fig: cnn} shows a the generic architecture for a CNN.
 \begin{figure}[H]
@@ -142,7 +149,7 @@ The architecture is composed as following:
 	\item A input $[w*h*c]$ holds the an image
 	\item A convolutional layer computes the output of its neurons that are connected to some window in the input, each computes the dot product between its weight and the region they are connected to. Each neuron apply a filter, usually of size $3x3$ or $5x5$.
 	\item A rectifier function, RELU $max(0,x)$, is applied in order set to zero the not discovered features.
-	\item A max-pool layer perform a downsampling operation, storing only the most relevant feature (the biggest number) in a little window size (usually $2x2$. Figure \ref{fig: pool} shows a visual representation of this operation
+	\item A max-pool layer perform a downsampling operation, storing only the most relevant feature (the biggest number) in a little window size (usually $2x2$). Figure \ref{fig: pool} shows a visual representation of this operation
 \begin{figure}[H]
 \centering
 	\includegraphics[scale=0.5]{images/pool}
