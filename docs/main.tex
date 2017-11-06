@@ -116,12 +116,12 @@ Also, delta at layer $l$ can be expressed by using the next $l+1$-th delta. Equa
 \label{eq: delta_on_delta}
 \end{equation}
 \subsection{Back Propagation}
-The \textbf{Back Propagation} algorithm defines an efficient and interactive method to calculate the gradient at each layer. We want to compute $\frac{\partial E}{\partial w^l_{jk}}$. We can applying the delta rule: 
+The \textbf{Back Propagation} algorithm defines an efficient and interactive method to calculate the gradient at each layer. We want to compute $\frac{\partial E}{\partial w^l_{jk}}$, by applying the delta rule: 
 \begin{equation}
 \frac{\partial E}{\partial w^l_{jk}} = \frac{\partial E}{\partial z^l_j}\frac{\partial z^l_j}{\partial w^l_{jk}} =	
 \frac{\partial E}{\partial a^l_j}\frac{\partial a^l_j}{\partial z^l_{j}}
 \end{equation}
-After some calculation, Equation \ref{eq: back_propagation} shows how to calculate the gradient for the weight $w$ of the $l$-th layer for the $j$-th neuron.
+After some calculation we derive Equation \ref{eq: back_propagation} that shows the partial derivative of the error function with respect to the weight of the $l$-th layer for the $j$-th neuron using the error output in that layer.
 \begin{equation}
 \frac{\partial E}{\partial w^l_{jk}} = a^{l-1}_k \delta^l_j
 \label{eq: back_propagation}
@@ -131,7 +131,8 @@ While \ref{eq: back_propagation_bias} shows how to calculate the derivative of t
 \frac{\partial E}{\partial b^l_j} = \delta^l_j
 \label{eq: back_propagation_bias}
 \end{equation}
-We know from Equation \ref{eq: deltaRule}, $\delta^l$ can be calculated used the $l+1$-th layer's information, this is why is called \emph{back} propagation since we used the last layer information in order to, each time, find out the next layer's delta until we reach the input layer.
+We know from Equation \ref{eq: delta_on_delta}, $\delta^l$ can be calculated used the $l+1$-th layer's information, this is why is called \emph{back} propagation since we used the last layer information in order to, each time, find out the next layer's delta until we reach the input layer.
+After computed the gradient with respect to each weight and bias the can use gradient descent described in section 2 in order to update each one of them according to Equation \ref{eq: gradient_descent}.
 \section{Convolutional Neural Network}
 Convolutional neural networks are neural network that uses a \textbf{convolutional} operation at place in at least one layer. They are used for processing grid-like data, such as time-series, a 1D grid and images, 2D grid. Figure \ref{fig: cnn} shows a the generic architecture for a CNN.
 \begin{figure}[H]
