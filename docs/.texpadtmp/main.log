@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2017.10.11)  6 NOV 2017 20:55
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2017.10.11)  7 NOV 2017 18:41
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -946,11 +946,11 @@ So I shall assume that you typed `$$' both times.
 [2] <images/cnn.jpeg, id=24, 1259.70625pt x 425.59pt>
 File: images/cnn.jpeg Graphic file (type jpg)
  <use images/cnn.jpeg>
-Package pdftex.def Info: images/cnn.jpeg used on input line 139.
+Package pdftex.def Info: images/cnn.jpeg used on input line 140.
 (pdftex.def)             Requested size: 440.9038pt x 148.95872pt.
  [3]
-./main.tex:144: Undefined control sequence.
-l.144 ...xpress an Image as a function $f: \mathbb
+./main.tex:145: Undefined control sequence.
+l.145 ...xpress an Image as a function $f: \mathbb
                                                   {Z}^2 \rightarrow \mathbb{...
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -958,8 +958,8 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-./main.tex:144: Undefined control sequence.
-l.144 ...tion $f: \mathbb{Z}^2 \rightarrow \mathbb
+./main.tex:145: Undefined control sequence.
+l.145 ...tion $f: \mathbb{Z}^2 \rightarrow \mathbb
                                                   {R}^c$, where $c$ is the n...
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -967,8 +967,8 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-./main.tex:144: Undefined control sequence.
-l.144 ...subset of the image domain, $W \in \matbb
+./main.tex:145: Undefined control sequence.
+l.145 ...subset of the image domain, $W \in \matbb
                                                   {Z}^2$, that corresponds t...
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -979,72 +979,72 @@ and I'll forget about whatever was undefined.
 <images/pool.png, id=29, 843.15pt x 437.635pt>
 File: images/pool.png Graphic file (type png)
  <use images/pool.png>
-Package pdftex.def Info: images/pool.png used on input line 155.
+Package pdftex.def Info: images/pool.png used on input line 156.
 (pdftex.def)             Requested size: 421.57396pt x 218.81696pt.
  [4 <./images/cnn.jpeg>] <images/cnn_faces.png, id=34, 1389.19pt x 716.6775pt>
 File: images/cnn_faces.png Graphic file (type png)
  <use images/cnn_faces.png>
-Package pdftex.def Info: images/cnn_faces.png used on input line 164.
+Package pdftex.def Info: images/cnn_faces.png used on input line 165.
 (pdftex.def)             Requested size: 486.22379pt x 250.84088pt.
 
-Overfull \hbox (16.46877pt too wide) in paragraph at lines 164--165
+Overfull \hbox (16.46877pt too wide) in paragraph at lines 165--166
  [][] 
  []
 
 [5 <./images/pool.png> <./images/cnn_faces.png>] <images/rnn.png, id=40, 1927.2pt x 505.89pt>
 File: images/rnn.png Graphic file (type png)
  <use images/rnn.png>
-Package pdftex.def Info: images/rnn.png used on input line 174.
+Package pdftex.def Info: images/rnn.png used on input line 175.
 (pdftex.def)             Requested size: 385.43318pt x 101.1762pt.
  <images/sigmoid_gradient_vanish.png, id=41, 462.528pt x 346.896pt>
 File: images/sigmoid_gradient_vanish.png Graphic file (type png)
  <use images/sigmoid_gradient_vanish.png>
-Package pdftex.def Info: images/sigmoid_gradient_vanish.png used on input line 209.
+Package pdftex.def Info: images/sigmoid_gradient_vanish.png used on input line 210.
 (pdftex.def)             Requested size: 231.26343pt x 173.44757pt.
  <images/sigmoid_gradient_vanish_derivative.png, id=42, 462.528pt x 346.896pt>
 File: images/sigmoid_gradient_vanish_derivative.png Graphic file (type png)
  <use images/sigmoid_gradient_vanish_derivative.png>
-Package pdftex.def Info: images/sigmoid_gradient_vanish_derivative.png used on input line 210.
+Package pdftex.def Info: images/sigmoid_gradient_vanish_derivative.png used on input line 211.
 (pdftex.def)             Requested size: 231.26343pt x 173.44757pt.
  [6 <./images/rnn.png>] <./images/LSTM3-chain.png, id=48, 806.89455pt x 303.17265pt>
 File: ./images/LSTM3-chain.png Graphic file (type png)
  <use ./images/LSTM3-chain.png>
-Package pdftex.def Info: ./images/LSTM3-chain.png used on input line 223.
+Package pdftex.def Info: ./images/LSTM3-chain.png used on input line 224.
 (pdftex.def)             Requested size: 403.44629pt x 151.58595pt.
  <./images/LSTM3-focus-f.png, id=49, 659.8251pt x 203.8014pt>
 File: ./images/LSTM3-focus-f.png Graphic file (type png)
  <use ./images/LSTM3-focus-f.png>
-Package pdftex.def Info: ./images/LSTM3-focus-f.png used on input line 234.
+Package pdftex.def Info: ./images/LSTM3-focus-f.png used on input line 235.
 (pdftex.def)             Requested size: 329.91174pt x 101.90044pt.
  [7 <./images/sigmoid_gradient_vanish.png> <./images/sigmoid_gradient_vanish_derivative.png> <./images/LSTM3-chain.png>] <./images/LSTM3-focus-i.png, id=57, 659.8251pt x 203.8014pt>
 File: ./images/LSTM3-focus-i.png Graphic file (type png)
  <use ./images/LSTM3-focus-i.png>
-Package pdftex.def Info: ./images/LSTM3-focus-i.png used on input line 236.
+Package pdftex.def Info: ./images/LSTM3-focus-i.png used on input line 237.
 (pdftex.def)             Requested size: 329.91174pt x 101.90044pt.
  <./images/LSTM3-focus-C.png, id=58, 659.8251pt x 203.8014pt>
 File: ./images/LSTM3-focus-C.png Graphic file (type png)
  <use ./images/LSTM3-focus-C.png>
-Package pdftex.def Info: ./images/LSTM3-focus-C.png used on input line 238.
+Package pdftex.def Info: ./images/LSTM3-focus-C.png used on input line 239.
 (pdftex.def)             Requested size: 329.91174pt x 101.90044pt.
  <./images/LSTM3-focus-o.png, id=59, 659.8251pt x 203.8014pt>
 File: ./images/LSTM3-focus-o.png Graphic file (type png)
  <use ./images/LSTM3-focus-o.png>
-Package pdftex.def Info: ./images/LSTM3-focus-o.png used on input line 240.
+Package pdftex.def Info: ./images/LSTM3-focus-o.png used on input line 241.
 (pdftex.def)             Requested size: 329.91174pt x 101.90044pt.
  [8 <./images/LSTM3-focus-f.png> <./images/LSTM3-focus-i.png> <./images/LSTM3-focus-C.png> <./images/LSTM3-focus-o.png>]
 
-LaTeX Warning: Reference `optimal_hyperplane' on page 9 undefined on input line 261.
+LaTeX Warning: Reference `optimal_hyperplane' on page 9 undefined on input line 262.
 
 <images/support_vector.png, id=67, 314.17375pt x 312.16624pt>
 File: images/support_vector.png Graphic file (type png)
  <use images/support_vector.png>
-Package pdftex.def Info: images/support_vector.png used on input line 272.
+Package pdftex.def Info: images/support_vector.png used on input line 273.
 (pdftex.def)             Requested size: 157.08649pt x 156.08273pt.
 
-./main.tex:289: Missing \right. inserted.
+./main.tex:290: Missing \right. inserted.
 <inserted text> 
                 \right .
-l.289   \end{matrix}	\\
+l.290   \end{matrix}	\\
                        
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
@@ -1053,8 +1053,8 @@ really didn't forget anything, try typing `2' now; then
 my insertion and my current dilemma will both disappear.
 
 [9 <./images/support_vector.png>]
-./main.tex:320: Undefined control sequence.
-l.320 ...o infinite dimensional space, called \emp
+./main.tex:321: Undefined control sequence.
+l.321 ...o infinite dimensional space, called \emp
                                                   {feature space}, then it p...
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -1065,12 +1065,12 @@ and I'll forget about whatever was undefined.
 <images/SVM.png, id=72, 824.07875pt x 481.8pt>
 File: images/SVM.png Graphic file (type png)
  <use images/SVM.png>
-Package pdftex.def Info: images/SVM.png used on input line 323.
+Package pdftex.def Info: images/SVM.png used on input line 324.
 (pdftex.def)             Requested size: 329.62566pt x 192.71658pt.
  [10 <./images/SVM.png>] <images/reinforcement.png, id=77, 546.843pt x 210.7875pt>
 File: images/reinforcement.png Graphic file (type png)
  <use images/reinforcement.png>
-Package pdftex.def Info: images/reinforcement.png used on input line 374.
+Package pdftex.def Info: images/reinforcement.png used on input line 375.
 (pdftex.def)             Requested size: 273.42082pt x 105.3935pt.
 
 
@@ -1096,7 +1096,7 @@ Here is how much of TeX's memory you used:
  1141 hyphenation exceptions out of 8191
  62i,14n,80p,812b,748s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb>
-Output written on "/Users/vaevictis/Dropbox/Master_AI/I Semester/Machine Learning/Midterm/docs/.texpadtmp/main.pdf" (12 pages, 2933989 bytes).
+Output written on "/Users/vaevictis/Dropbox/Master_AI/I Semester/Machine Learning/Midterm/docs/.texpadtmp/main.pdf" (12 pages, 2933931 bytes).
 PDF statistics:
  130 PDF objects out of 1000 (max. 8388607)
  74 compressed objects within 1 object stream

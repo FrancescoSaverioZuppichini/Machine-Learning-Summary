@@ -38,7 +38,7 @@ In order to apply gradient descend we need a loss function to minimise, usually 
 	\item \textbf{For Regression} \\
 	Mean Square Error: \\
 	\begin{equation}
-	E = \frac{1}{N}\sum_{i=1}^N(\underbrace{y_i}_{\text{predicted}} - \underbrace{t_1}_{\text{actual}})^2
+	E = \frac{1}{N}\sum_{i=1}^N(\underbrace{y_i}_{\text{predicted}} - \underbrace{t_i}_{\text{actual}})^2
 	\label{eq: MSE}	
 	\end{equation}
 	\item \textbf{For Classification} \\
@@ -179,7 +179,7 @@ A Recurrent Neural Networks can remember past decision by taking as input not on
 
 Very similar to a feedforward network, Equation \ref{eq: output_rnn} shows the weighted output at layer $j$. The first term on the right-hand is just the feedforward's weighted output, while the second term is the time-dependent term. Matrix $\omega$ is a hidden-state-to-hidden-state matrix. Basically, we are adding previous informations to our new state at time $t$.
 \begin{equation}
-z[t]^l = (W^la[t]^{l -1}+ b^l_j) + (\omega^l a[t-1]^{l-1})
+z[t]^l = (W^la[t]^{l -1}+ b^l) + (\omega^l a[t-1]^{l-1})
 \label{eq: output_rnn}	
 \end{equation}
 Equation \ref{eq: activation_rnn} shows the activation of layer $j$ at time $t$.
