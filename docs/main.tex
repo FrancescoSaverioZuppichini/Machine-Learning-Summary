@@ -13,6 +13,8 @@
 \usepackage[export]{adjustbox}
 \usepackage{wrapfig}
 \usepackage{sidecap}
+\usepackage{relsize}
+
 
 \title{Machine Learning Review}
 \author{Francesco Saverio Zuppichini}
@@ -28,7 +30,7 @@ The gradient descend is an iterative optimisation algorithm that follows the dir
 	w_{k + 1} = w_k - \eta \nabla E(w_k)
 	\label{eq: gradient_descent}
 \end{equation}
-Where $\eta$ is the step size, also called \textbf{learning rate} in Machine Learning. This parameter influences the behaviour of gradient descent, a small number can lead to local minimum, while a bigger learning rate could "over-shoot" and decreasing the converge ration. Later in this project you will see how a wrong $\eta$ can strongly change the output of a Neural Network.
+Where $\eta$ is the step size, also called \textbf{learning rate} in Machine Learning. This parameter influences the behaviour of gradient descent, a small number can lead to local minimum, while a bigger learning rate could "over-shoot" and decreasing the converge ration. 
 
 For this reasons, numerous improvements have been proposed to avoid local minima and increase its convergence ration, some of them are: Conjugate Gradient and Momentum.
 \subsection{Loss Functions}
@@ -112,7 +114,7 @@ By knowing that $a^l_j = \sigma(z^l_j)$, Equation \ref{eq:deltaRule_2} can be ex
 
 Also, delta at layer $l$ can be expressed by using the next $l+1$-th delta. Equation \ref{eq: delta_on_delta} shows the new rule.
 \begin{equation}
-\delta^l = (W^{l+1}\delta^{l+1}) * a^l
+\delta^l = ((W^{l+1}\delta^{l+1})^T) * a^l
 \label{eq: delta_on_delta}
 \end{equation}
 \subsection{Back Propagation}
@@ -179,10 +181,15 @@ A Recurrent Neural Networks can remember past decision by taking as input not on
 
 Very similar to a feedforward network, Equation \ref{eq: output_rnn} shows the weighted output at layer $j$. The first term on the right-hand is just the feedforward's weighted output, while the second term is the time-dependent term. Matrix $\omega$ is a hidden-state-to-hidden-state matrix. Basically, we are adding previous informations to our new state at time $t$.
 \begin{equation}
-z[t]^l = (W^la[t]^{l -1}+ b^l) + (\omega^l a[t-1]^{l-1})
+z[t]^{(2)}_j = b_j^{(2)} + \mathlarger{\sum}^{N(2)}_{k}w^l_{j,k}^{(1)}a_k[t]^{(1)} + \mathlarger{\sum}_k^{N(2)}(\omega_{j,k}^{(2)} a_j[t-1]^{(2)})
 \label{eq: output_rnn}	
 \end{equation}
-Equation \ref{eq: activation_rnn} shows the activation of layer $j$ at time $t$.
+While Equation \ref{eq: output_rnn_vectorised} shows a vectorised form of Equation \ref{eq: output_rnn}
+\begin{equation}
+z[t]_j^l = (W^la[t]^{l -1}+ b^l) + (\omega^l a[t-1]^{l-1})
+\label{eq: output_rnn_vectorised}
+\end{equation}
+Equation \ref{eq: activation_rnn} shows the activation of layer $l$ at time $t$.
 \begin{equation}
 a[t]^l	= \sigma(z[t]^l)
 \label{eq: activation_rnn}
@@ -240,7 +247,6 @@ computes four basic operations:
 \item Output Gate	\\
 \includegraphics[scale=0.5]{./images/LSTM3-focus-o.png}
 \end{enumerate}
-	
 % \end{enumerate}
 \section{Support Vector Machine}
 
@@ -254,12 +260,12 @@ in order to classify the points that belong to the positive or negative class. E
 Where $\phi(x) = \{\varphi_j(x)\}_j^{\infty}$, is the set of non-linear function, called \emph{feature vector}. It tries to find the \textbf{support vectors}, a subset of the data-set, in order to maximise the margin between them using Quadratic Programming.
 
 \subsection{Linear separable data}
-In the simple linear case, where the data is linearly separable, Equation \ref{eq: decision_surface_linear} can be re-express by Equation \ref{eq: decision_surface_linear}, notice that we do not need the non-linear map anymore:
+In the simple linear case, where the data is linearly separable, Equation \ref{eq: decision_surface} can be re-express by Equation \ref{eq: decision_surface_linear}, notice that we do not need the non-linear map anymore:
 \begin{equation}
     w^Tx + b= 0	
     \label{eq: decision_surface_linear}
 \end{equation}
-Equation \ref{optimal_hyperplane} shows the optimal hyperplane for the linear case
+Equation \ref{eq: optimal_hyperplane} shows the optimal hyperplane for the linear case
 \begin{equation}
     \begin{array}{r c l}
 w^T_0x + b_0 \ge +1 && \text{for} \quad d_i = + 1  \\
@@ -298,7 +304,7 @@ Where $g(x)$ is the discriminant function, Equation \ref{eq: discriminant}, $x^(
  \begin{array}{r c l}
 	\text{min} \quad \Phi(w) = \frac{1}{2} w^Tw \\ 
 	\\
-	\text{subject to} \quad d_i(w_i^Tw_i + b_i) \ge 1 && \text{for} \quad 1 = 1,2, ..., N
+	\text{subject to} \quad d_i(w_i^Tx_i + b) \ge 1 && \text{for} \quad 1 = 1,2, ..., N
 \end{array}
 \label{eq: hard_margin}
 \end{equation}
@@ -307,7 +313,7 @@ This basic linear classifier can still be used to classify non-linear separable 
  \begin{array}{r c l}
 \text{min} \quad \Phi(w) = \frac{1}{2} w^Tw + c \sum_{k=0}^R \epsilon_k \\
 	\\
-\text{subject to} \quad d_i(w_i^Tw_i + b_i) \ge 1 - \epsilon_i && \epsilon_i > 0 \quad \text{for} \quad \text{all} \quad  i
+\text{subject to} \quad d_i(w_i^Tx_i + b) \ge 1 - \epsilon_i && \epsilon_i > 0 \quad \text{for} \quad \text{all} \quad  i
 \end{array}
 \label{eq: softMargin}
 \end{equation}
@@ -360,6 +366,13 @@ Basically, the \textbf{kernel} computes the inner product of the images produced
            & 0 \le \lambda_i \le C 
          \end{aligned}
     \end{equation}
+Notice that we do not need to explicit compute the weight vector $w_o$ anymore that can be huge and so expensive to compute and store in memory, but only the \emph{kernel} function $k$. Therefore we can move in very high dimensional space and still use compute operation in the original space. For this reason the mathematicians refer to it as the \textbf{kernel tricks}. Figure \ref{fig: kernel_trick} show a mapping from $\mathbb{R}^2$, where the data is non-separable, to $\mathbb{R}^3$. 
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.3]{images/kernel_trick_2d_3d}
+\caption{Kernel Trick from 2d to 3d}
+\label{fig: kernel_trick}
+\end{figure}
 The kernel must be decided \emph{a priori} from the user.
 \section{Deep Learning}
 \subsection{Supervised Learning}
