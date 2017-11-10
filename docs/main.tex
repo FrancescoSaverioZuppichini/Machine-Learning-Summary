@@ -25,7 +25,7 @@ The aim of this report is to summarise the topics threaded in my Machine Learnin
 \todo[inline]{Write something about the history of ML}
 
 \section{Gradient Descend}
-The gradient descend is an iterative optimisation algorithm that follows the direction of the negative gradient in order to minimised an objective function. It can be effectively used as Learning Algorithm because it reduces the error function, Equation \ref{eq: MSE_perceptron}, and adjusts the weights properly. Equation \ref{eq: GD} shows the generic update rule.
+The gradient descend is an iterative optimisation algorithm that follows the direction of the negative gradient in order to minimised an objective function. It can be effectively used as Learning Algorithm because it reduces the error function, Equation \ref{eq: MSE_perceptron}, and adjusts the weights properly. Equation \ref{eq: gradient_descent} shows the generic update rule.
 \begin{equation}
 	w_{k + 1} = w_k - \eta \nabla E(w_k)
 	\label{eq: gradient_descent}
@@ -54,7 +54,8 @@ In order to apply gradient descend we need a loss function to minimise, usually 
 	- \sum_{i = 1}^K t_ilog(y_i)
 	\label{eq: log_like}
 	\end{equation}
-	
+	Where $K$ is the dimension of the vector.
+
 \end{itemize}
 \section{Perceptron}
 \subsection{Definition}
@@ -114,14 +115,13 @@ By knowing that $a^l_j = \sigma(z^l_j)$, Equation \ref{eq:deltaRule_2} can be ex
 
 Also, delta at layer $l$ can be expressed by using the next $l+1$-th delta. Equation \ref{eq: delta_on_delta} shows the new rule.
 \begin{equation}
-\delta^l = ((W^{l+1}\delta^{l+1})^T) * a^l
+\delta^l = ((W^{l+1}\delta^{l+1})^T) * \sigma'(z^l)
 \label{eq: delta_on_delta}
 \end{equation}
 \subsection{Back Propagation}
 The \textbf{Back Propagation} algorithm defines an efficient and interactive method to calculate the gradient at each layer. We want to compute $\frac{\partial E}{\partial w^l_{jk}}$, by applying the delta rule: 
 \begin{equation}
-\frac{\partial E}{\partial w^l_{jk}} = \frac{\partial E}{\partial z^l_j}\frac{\partial z^l_j}{\partial w^l_{jk}} =	
-\frac{\partial E}{\partial a^l_j}\frac{\partial a^l_j}{\partial z^l_{j}}
+\frac{\partial E}{\partial w^l_{jk}} = 	\frac{\partial E}{\partial a^l_k}\frac{\partial a^l_k}{\partial z^l_k}\frac{\partial z^l_k}{\partial w^l_{jk}}
 \end{equation}
 After some calculation we derive Equation \ref{eq: back_propagation} that shows the partial derivative of the error function with respect to the weight of the $l$-th layer for the $j$-th neuron using the error output in that layer.
 \begin{equation}
@@ -250,7 +250,7 @@ computes four basic operations:
 % \end{enumerate}
 \section{Support Vector Machine}
 
-A Support Vector Machine maps the input space to a high dimensional space, called \emph{feature space}, using a set of non linear function, 
+A Support Vector Machine is a binary learning machine that maps the input space to a high dimensional space, called \emph{feature space}, using a set of non linear function, 
 called the \emph{feature vector}, defined as $\phi(x)$. Then, it constructs an optimal hyperplane in order to separate the features discovered in the \emph{feature set}
 in order to classify the points that belong to the positive or negative class. Equation \ref{eq: decision_surface} shows the decision surface.
 \begin{equation}
@@ -268,15 +268,15 @@ In the simple linear case, where the data is linearly separable, Equation \ref{e
 Equation \ref{eq: optimal_hyperplane} shows the optimal hyperplane for the linear case
 \begin{equation}
     \begin{array}{r c l}
-w^T_0x + b_0 \ge +1 && \text{for} \quad d_i = + 1  \\
-w^T_0x + b_0  \le -1 && \text{for} \quad   d_i = - 1 
+w^T_0x_i + b_0 \ge +1 && \text{for} \quad d_i = + 1  \\
+w^T_0x_i + b_0  \le -1 && \text{for} \quad   d_i = - 1 
 \end{array}
    \label{eq: optimal_hyperplane}
 \end{equation}
-In this case, the \textbf{support vectors} is a small subset of points $(x_i,d_i)$ of the dataset for which Equation \ref{eq: optimal_hyperplane} holds. Figure \ref{fig: support_vector} shows a graphic representation. 
+In this case, the \textbf{support vectors} is a small subset of points $(x_i,d_i)$ of the dataset for which Equation \ref{eq: optimal_hyperplane} holds with the equality sign. Figure \ref{fig: support_vector} shows a graphic representation. 
 \begin{figure}[H]
 \centering
-\includegraphics[scale=0.5]{images/support_vector}
+f'
 \caption{Support Vectors}
 \label{fig: support_vector}
 \end{figure}
@@ -287,7 +287,7 @@ g(x) = w x + b = \pm 1
 \end{equation}
 \begin{equation}
 \begin{matrix}
-r = \frac{g(x^{(2))}}{||w_o||} \\ 
+r = \frac{g(x^{(s)}}{||w_o||} \\ 
 \\
 r =  \left  \{
  \begin{matrix}
@@ -336,11 +336,12 @@ Specifically, the \emph{feature map} is made by multiplying the inputs point wit
 \phi(x) = \{\varphi_j(x) \}^{\infty}_{j=1}
 \label{eq: feature_map}
 \end{equation}
-Keeping in mind the Equation \ref{eq: optimal_hyperplane}, the optimal decise surface, we can re-state the optimal weight Equation \ref{eq: optimal_weight_lagrande} as follow:
+We can re-state the optimal weight, Equation \ref{eq: optimal_weight_lagrande} as follow:
 \begin{equation}
 w = \sum^{N^{(s)}}_{i = 1}a_id_i\phi(x_i)	
+\label{eq: optimal_weight_kerlen}
 \end{equation}
-Hence, substituting Equation \ref{eq: optimal_hyperplane}, we obtain
+Hence, substituting Equation \ref{eq: decision_surface}, we obtain
 \begin{equation}
 \sum^{N^{(s)}}_{i = 1}a_id_i\phi(x_i)^T\phi(x) = 0
 \label{eq: optimal_hyperplane_feature}
@@ -354,7 +355,7 @@ k(x, x_i) = \phi(x_i)^T\phi(x)  \\
 The function $k(x, x_i)$ is called the \textbf{kernel}. According to this, we can re-express the optimal decise surface, Equation \ref{eq: optimal_hyperplane_feature}, by:
 \begin{equation}
 \sum^{N^{(s)}}_{i = 1}a_id_ik(x_i,x) = 0
-\label{eq: optimal_hyperplane_feature}
+\label{eq: optimal_hyperplane_feature_kernel}
 \end{equation} 
 Basically, the \textbf{kernel} computes the inner product of the images produced in the feature spaces under embedding $\phi$ of two data points in the input space. Equation \ref{eq: dual_problem_kernel} states the dual problem.
 \begin{equation}

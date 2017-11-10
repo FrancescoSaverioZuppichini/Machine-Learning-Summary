@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2017.10.11)  7 NOV 2017 22:39
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2017.10.11)  8 NOV 2017 12:02
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -673,11 +673,7 @@ File: english.lbx 2016/12/05 v3.7 biblatex localization (PK/JW/AB)
 )
 \@quotelevel=\count334
 \@quotereset=\count335
- (/Users/vaevictis/Dropbox/Master_AI/I Semester/Machine Learning/Midterm/docs/.texpadtmp/main.aux
-
-LaTeX Warning: Label `eq: optimal_hyperplane_feature' multiply defined.
-
-)
+ (/Users/vaevictis/Dropbox/Master_AI/I Semester/Machine Learning/Midterm/docs/.texpadtmp/main.aux)
 \openout1 = `main.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 21.
@@ -797,9 +793,6 @@ LaTeX Info: Redefining \selectfont on input line 126.
 
 LaTeX Warning: Reference `eq: MSE_perceptron' on page 1 undefined on input line 28.
 
-
-LaTeX Warning: Reference `eq: GD' on page 1 undefined on input line 28.
-
 LaTeX Font Info:    Try loading font information for OMS+cmr on input line 40.
 (/usr/local/texlive/2017/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
@@ -819,18 +812,18 @@ Underfull \hbox (badness 10000) in paragraph at lines 51--53
 [1
 
 {/usr/local/texlive/2017/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
-./main.tex:65: Missing $ inserted.
+./main.tex:66: Missing $ inserted.
 <inserted text> 
                 $
-l.65   1 \quad \text{if} w \cdot
+l.66   1 \quad \text{if} w \cdot
                                  x + b \ge  0 & & \\
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
 
-./main.tex:65: Extra }, or forgotten $.
+./main.tex:66: Extra }, or forgotten $.
 <template> \unskip \hfil }
                           \hskip \tabcolsep \endtemplate 
-l.65   1 \quad \text{if} w \cdot x + b \ge  0 &
+l.66   1 \quad \text{if} w \cdot x + b \ge  0 &
                                                 & \\
 I've deleted a group-closing symbol because it seems to be
 spurious, as in `$x}$'. But perhaps the } is legitimate and
@@ -838,18 +831,18 @@ you forgot something else, as in `\hbox{$x}'. In such cases
 the way to recover is to insert both the forgotten and the
 deleted material, e.g., by typing `I$}'.
 
-./main.tex:65: Missing $ inserted.
+./main.tex:66: Missing $ inserted.
 <inserted text> 
                 $
-l.65   1 \quad \text{if} w \cdot x + b \ge  0 &
+l.66   1 \quad \text{if} w \cdot x + b \ge  0 &
                                                 & \\
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
 
-./main.tex:65: Missing } inserted.
+./main.tex:66: Missing } inserted.
 <inserted text> 
                 }
-l.65   1 \quad \text{if} w \cdot x + b \ge  0 &
+l.66   1 \quad \text{if} w \cdot x + b \ge  0 &
                                                 & \\
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
@@ -857,20 +850,20 @@ With luck, this will get me unwedged. But if you
 really didn't forget anything, try typing `2' now; then
 my insertion and my current dilemma will both disappear.
 
-./main.tex:69: You can't use `\eqno' in math mode.
+./main.tex:70: You can't use `\eqno' in math mode.
 \endmathdisplay@a ...\df@tag \@empty \else \veqno 
                                                   \alt@tag \df@tag \fi \ifx ...
-l.69 \end{equation}
+l.70 \end{equation}
                    
 Sorry, but I'm not programmed to handle this case;
 I'll just pretend that you didn't ask for it.
 If you're in the wrong mode, you might be able to
 return to the right one by typing `I}' or `I$' or `I\par'.
 
-./main.tex:69: Missing \right. inserted.
+./main.tex:70: Missing \right. inserted.
 <inserted text> 
                 \right .
-l.69 \end{equation}
+l.70 \end{equation}
                    
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
@@ -878,8 +871,8 @@ With luck, this will get me unwedged. But if you
 really didn't forget anything, try typing `2' now; then
 my insertion and my current dilemma will both disappear.
 
-./main.tex:70: Extra }, or forgotten $.
-l.70 Given a training set $D = \{ (x_1,t_1}
+./main.tex:71: Extra }, or forgotten $.
+l.71 Given a training set $D = \{ (x_1,t_1}
                                            , ... , (x_n,t_i) \}$, $x_i \in X...
 I've deleted a group-closing symbol because it seems to be
 spurious, as in `$x}$'. But perhaps the } is legitimate and
@@ -887,49 +880,49 @@ you forgot something else, as in `\hbox{$x}'. In such cases
 the way to recover is to insert both the forgotten and the
 deleted material, e.g., by typing `I$}'.
 
-./main.tex:95: Missing $ inserted.
+./main.tex:96: Missing $ inserted.
 <inserted text> 
                 $
-l.95 
+l.96 
      
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
 
-./main.tex:95: Display math should end with $$.
+./main.tex:96: Display math should end with $$.
 <to be read again> 
                    \par 
-l.95 
+l.96 
      
 The `$' that I just saw supposedly matches a previous `$$'.
 So I shall assume that you typed `$$' both times.
 
 
-./main.tex:96: LaTeX Error: Bad math environment delimiter.
+./main.tex:97: LaTeX Error: Bad math environment delimiter.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.96 \end{equation}
+l.97 \end{equation}
                    
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
-./main.tex:96: You can't use `\eqno' in vertical mode.
+./main.tex:97: You can't use `\eqno' in vertical mode.
 \endmathdisplay@a ...\df@tag \@empty \else \veqno 
                                                   \alt@tag \df@tag \fi \ifx ...
-l.96 \end{equation}
+l.97 \end{equation}
                    
 Sorry, but I'm not programmed to handle this case;
 I'll just pretend that you didn't ask for it.
 If you're in the wrong mode, you might be able to
 return to the right one by typing `I}' or `I$' or `I\par'.
 
-./main.tex:96: Missing $ inserted.
+./main.tex:97: Missing $ inserted.
 <inserted text> 
                 $
-l.96 \end{equation}
+l.97 \end{equation}
                    
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
@@ -937,10 +930,10 @@ With luck, this will get me unwedged. But if you
 really didn't forget anything, try typing `2' now; then
 my insertion and my current dilemma will both disappear.
 
-./main.tex:96: Display math should end with $$.
+./main.tex:97: Display math should end with $$.
 <to be read again> 
                    \endgroup 
-l.96 \end{equation}
+l.97 \end{equation}
                    
 The `$' that I just saw supposedly matches a previous `$$'.
 So I shall assume that you typed `$$' both times.
@@ -1039,12 +1032,7 @@ File: ./images/LSTM3-focus-o.png Graphic file (type png)
  <use ./images/LSTM3-focus-o.png>
 Package pdftex.def Info: ./images/LSTM3-focus-o.png used on input line 248.
 (pdftex.def)             Requested size: 329.91174pt x 101.90044pt.
- [8 <./images/LSTM3-focus-f.png> <./images/LSTM3-focus-i.png> <./images/LSTM3-focus-C.png> <./images/LSTM3-focus-o.png>] <images/support_vector.png, id=67, 314.17375pt x 312.16624pt>
-File: images/support_vector.png Graphic file (type png)
- <use images/support_vector.png>
-Package pdftex.def Info: images/support_vector.png used on input line 279.
-(pdftex.def)             Requested size: 157.08649pt x 156.08273pt.
-
+ [8 <./images/LSTM3-focus-f.png> <./images/LSTM3-focus-i.png> <./images/LSTM3-focus-C.png> <./images/LSTM3-focus-o.png>]
 ./main.tex:296: Missing \right. inserted.
 <inserted text> 
                 \right .
@@ -1056,7 +1044,7 @@ With luck, this will get me unwedged. But if you
 really didn't forget anything, try typing `2' now; then
 my insertion and my current dilemma will both disappear.
 
-[9 <./images/support_vector.png>]
+[9]
 ./main.tex:327: Undefined control sequence.
 l.327 ...o infinite dimensional space, called \emp
                                                   {feature space}, then it p...
@@ -1066,16 +1054,16 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-<images/SVM.png, id=72, 824.07875pt x 481.8pt>
+<images/SVM.png, id=70, 824.07875pt x 481.8pt>
 File: images/SVM.png Graphic file (type png)
  <use images/SVM.png>
 Package pdftex.def Info: images/SVM.png used on input line 330.
 (pdftex.def)             Requested size: 329.62566pt x 192.71658pt.
  [10 <./images/SVM.png>]
-./main.tex:369: Undefined control sequence.
+./main.tex:370: Undefined control sequence.
 <recently read> \mathbb 
                         
-l.369 ...ernel_trick} show a mapping from $\mathbb
+l.370 ...ernel_trick} show a mapping from $\mathbb
                                                   {R}^2$, where the data is ...
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -1083,10 +1071,10 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-./main.tex:369: Undefined control sequence.
+./main.tex:370: Undefined control sequence.
 <recently read> \mathbb 
                         
-l.369 ...re the data is non-separable, to $\mathbb
+l.370 ...re the data is non-separable, to $\mathbb
                                                   {R}^3$.
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -1094,40 +1082,37 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-<images/kernel_trick_2d_3d.png, id=77, 1198.4775pt x 560.0925pt>
+<images/kernel_trick_2d_3d.png, id=75, 1198.4775pt x 560.0925pt>
 File: images/kernel_trick_2d_3d.png Graphic file (type png)
  <use images/kernel_trick_2d_3d.png>
-Package pdftex.def Info: images/kernel_trick_2d_3d.png used on input line 372.
+Package pdftex.def Info: images/kernel_trick_2d_3d.png used on input line 373.
 (pdftex.def)             Requested size: 359.54602pt x 168.02904pt.
- [11] <images/reinforcement.png, id=81, 546.843pt x 210.7875pt>
+ [11 <./images/kernel_trick_2d_3d.png>] <images/reinforcement.png, id=80, 546.843pt x 210.7875pt>
 File: images/reinforcement.png Graphic file (type png)
  <use images/reinforcement.png>
-Package pdftex.def Info: images/reinforcement.png used on input line 388.
+Package pdftex.def Info: images/reinforcement.png used on input line 389.
 (pdftex.def)             Requested size: 273.42082pt x 105.3935pt.
- [12 <./images/kernel_trick_2d_3d.png> <./images/reinforcement.png>] [13] (/Users/vaevictis/Dropbox/Master_AI/I Semester/Machine Learning/Midterm/docs/.texpadtmp/main.aux)
+ [12 <./images/reinforcement.png>] (/Users/vaevictis/Dropbox/Master_AI/I Semester/Machine Learning/Midterm/docs/.texpadtmp/main.aux)
 
 LaTeX Warning: There were undefined references.
-
-
-LaTeX Warning: There were multiply-defined labels.
 
 Package logreq Info: Writing requests to 'main.run.xml'.
 \openout1 = `main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 22544 strings out of 492995
- 427429 string characters out of 6132703
- 835611 words of memory out of 5000000
- 25694 multiletter control sequences out of 15000+600000
+ 22540 strings out of 492995
+ 427350 string characters out of 6132703
+ 835591 words of memory out of 5000000
+ 25691 multiletter control sequences out of 15000+600000
  10055 words of font info for 36 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  62i,14n,80p,812b,748s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb>
-Output written on "/Users/vaevictis/Dropbox/Master_AI/I Semester/Machine Learning/Midterm/docs/.texpadtmp/main.pdf" (13 pages, 3054232 bytes).
+Output written on "/Users/vaevictis/Dropbox/Master_AI/I Semester/Machine Learning/Midterm/docs/.texpadtmp/main.pdf" (12 pages, 3026822 bytes).
 PDF statistics:
- 136 PDF objects out of 1000 (max. 8388607)
- 77 compressed objects within 1 object stream
+ 130 PDF objects out of 1000 (max. 8388607)
+ 74 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 88 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 83 words of extra memory for PDF output out of 10000 (max. 10000000)
 
